@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+	<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<div id="root1"></div>
+	<div id="root2"></div>
+	<div id="root3"></div>
+	<script type="text/babel">
+		ReactDOM.render(
+			<div>Hello World</div>,
+			document.getElementById('root')
+		)
+
+		var element = <div>Hello World Element</div>
+
+		ReactDOM.render(
+			element,
+			document.getElementById('root1')
+		)
+
+		var num = 0;
+
+		function updateNum() {
+			ReactDOM.render(
+			<div>{num++}</div>,
+			document.getElementById('root')
+			)
+		}
+
+		function render(element, rootId) {
+			ReactDOM.render(element, rootId)
+		}
+
+		setInterval(updateNum, 100)
+
+		// Without JSX, the process is much slower and more verbose:
+		var element = React.createElement('h2', null, 'Hello World!')
+
+		ReactDOM.render(
+			element,
+			document.getElementById('root2')
+		)
+		// The following are all examples of valid JavaScript expressions in JSX:
+		var str = "World!" 
+
+    	var element =  <h1> Hello {str} </h1>
+
+    	ReactDOM.render(
+			element,
+			document.getElementById('root2')
+		)
+
+		var item = {
+			name: "Cheese",
+			price: 5
+		}
+
+		var element = <p> {item.name} : {item.price} </p>
+
+		render(element, document.getElementById('root2'))
+
+	</script>
+	<script type="text/babel" src="./scripts.js"></script>
+</body>
+</html>
