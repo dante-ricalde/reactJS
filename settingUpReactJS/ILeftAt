@@ -11,3 +11,8 @@ You can supply attribute values using a string literal surrounded by quotes:
 01/04/2018
 	Functional Components
 		A React Component is an independent reusable componen
+
+14/04/2017
+	Conditional Rendering
+		The output of a Functional Component can be
+	The shopping.html and shopping.js was finished.

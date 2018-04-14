@@ -61,3 +61,30 @@ if (product.stock < 0) {
 	var element = <h1>The product named {product.name} and has {product.stock} units in stock</h1>
 }
 render(element, document.getElementById('root10'))
+
+/*********** Functional Components ***/
+function HelloWorld() {
+	return <h1>Hello World. Functional Component!</h1>
+}
+
+// you can use the React Component in JSX by creating an HTML tag with the same name as the React Component
+var element = <HelloWorld/>
+render(element, document.getElementById('root11'));
+// another example
+render(<HelloWorld/>, document.getElementById('root12'));
+// These examples will al evaluate to the React Element that is returned by the HelloWorld Component.
+
+// ADDING PROPERTIES TO FUNCTIONAL COMPONENTS
+// The first argument to a Functional Component is an object that contains the component's properties
+function HelloWorld1(props) {
+	return <h1>Message: {props.message}</h1>
+}
+// You can supply properties values the same way as you supply attribute values
+render(<HelloWorld1 message="Hello World message passed as a property!!!" />, document.getElementById('root13'));
+
+// Properties can be string literals, arrays or any other type of javascript object including other React Elements:
+function HelloWorld2(props){
+	return <h1>Value: {props.numberArray[props.index]} </h1>
+}
+render(<HelloWorld2 index="3" numberArray={[1,2,3,4,5]} />, document.getElementById('root14'));
+// you can supply as many property values as you want and They will all be accessible through the props argument.
